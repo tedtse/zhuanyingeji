@@ -9,7 +9,11 @@
 /coverage
 
 # production
+/output
 /build
+/nodejs/*.js
+/nodejs/setting.json
+main.js
 
 # misc
 .DS_Store

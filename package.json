@@ -1,7 +1,7 @@
 {
   "name": "zhuanyingeji-ts",
   "version": "0.1.0",
-  "private": true,
+  "main": "main.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -10,16 +10,28 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/react-router-dom": "^5.1.5",
+    "antd": "^4.6.5",
+    "crypto-js": "^4.0.0",
+    "dayjs": "^1.8.36",
+    "electron": "^10.1.2",
+    "mkdirp": "^1.0.4",
+    "mobx": "^5.15.7",
+    "mobx-react": "^6.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "typescript": "~3.7.2"
+    "request-promise": "^4.2.6"
   },
   "scripts": {
+    "electron-start": "tsc main.ts && tsc nodejs/index.ts && cross-env NODE_ENV=development electron .",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-preload": "webpack --config ./configs/webpack.config.preload.prod.js --colors",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "package:mac": "cross-env NODE_ENV=production electron-packager ./ zhuanyingeji --platform=darwin --arch=x64 --overwrite --out=release --ignore=\"(src|nodejs/*.ts|config|public|.gitignore|LICENSE|README.md|package-lock.json|package.json|tsconfig.json|node_modules)\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +47,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^3.1.47",
+    "@types/mkdirp": "^1.0.1",
+    "@types/request-promise": "^4.1.46",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "electron-packager": "^15.1.0",
+    "ts-loader": "^8.0.4",
+    "typescript": "^3.7.5",
+    "webpack-cli": "^3.3.12"
   }
 }
