@@ -13,6 +13,7 @@
 /build
 /nodejs/*.js
 /nodejs/setting.json
+/release
 main.js
 
 # misc
