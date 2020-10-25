@@ -1,5 +1,5 @@
 export default {
-  toSize(size: number): string {
+  toSize(size: number = 0): string {
     if (size < 0 || isNaN(size)) {
       throw new Error("非法的文件大小");
     }

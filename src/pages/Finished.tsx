@@ -5,8 +5,13 @@ import dayjs from "dayjs";
 import { observer } from "mobx-react";
 import NodeJSUtils from "../libs/node-js-utils";
 import utils from "../libs/utils";
+import FinishedModel from "../models/FinishedModel";
 
-function ListItemRender(info: any, index: number): JSX.Element {
+interface FinshedProps {
+  finishedList: FinishedModel[];
+}
+
+function ListItemRender(info: FinishedModel, index: number): JSX.Element {
   const { filepath, filename, size, modifyTime } = info;
   return (
     <li key={index}>
@@ -33,7 +38,7 @@ function ListItemRender(info: any, index: number): JSX.Element {
   );
 }
 
-const Finished = observer(({ finishedList }: any) => {
+const Finished = observer(({ finishedList }: FinshedProps) => {
   if (finishedList.length) {
     return <ul className="app-list">{finishedList.map(ListItemRender)}</ul>;
   } else {

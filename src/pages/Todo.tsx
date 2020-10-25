@@ -5,8 +5,13 @@ import dayjs from "dayjs";
 import { observer } from "mobx-react";
 import NodeJSUtils from "../libs/node-js-utils";
 import utils from "../libs/utils";
+import TodoModel from "../models/TodoModel"
 
-const ListItemRender = (info: any, index: number) => {
+interface TodoProps {
+  todoList: TodoModel[]
+}
+
+const ListItemRender = (info: TodoModel, index: number) => {
   const { filepath, filename, size, date } = info;
   return (
     <li key={index}>
@@ -33,7 +38,7 @@ const ListItemRender = (info: any, index: number) => {
   );
 };
 
-const Todo = observer(({ todoList }: any) => {
+const Todo = observer(({ todoList }: TodoProps) => {
   if (todoList.length) {
     return <ul className="app-list">{todoList.map(ListItemRender)}</ul>;
   } else {

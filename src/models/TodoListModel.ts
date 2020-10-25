@@ -1,5 +1,5 @@
 import { observable, computed, action } from "mobx";
-import TodoModel from "./TodoModel";
+import TodoModel, { TodoModelProps } from "./TodoModel";
 
 export default class TodoListModel {
   @observable list: TodoModel[] = [];
@@ -8,7 +8,7 @@ export default class TodoListModel {
     return this.list.length;
   }
 
-  @action addTodo(todo: any) {
+  @action addTodo(todo: TodoModelProps) {
     this.list.push(new TodoModel(todo));
   }
 

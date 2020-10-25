@@ -38,8 +38,8 @@ export default class FinishedListModel {
   constructor() {
     this.list.push(...getFinishedList());
   }
-  
+
   @action updateList() {
     this.list.splice(0, this.list.length, ...getFinishedList());
-  };
+  }
 }

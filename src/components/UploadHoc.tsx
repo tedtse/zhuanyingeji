@@ -2,6 +2,7 @@ import React from "react";
 import { Upload } from "antd";
 import NodeJSUtils from "../libs/node-js-utils";
 import { todoList, finishedList } from "../stores";
+import { TodoModelProps } from "../models/TodoModel";
 
 const Setting = NodeJSUtils.getSetting() || {};
 const { xunfeiConf } = Setting;
@@ -30,7 +31,7 @@ export default function (Wrapper: UploadOrDragger): Function {
         filepath,
         filename,
         size,
-      });
+      } as TodoModelProps);
       const content = await api.beginTaskRequest(taskId);
       const { name }: any = NodeJSUtils.parsePath(filepath);
       NodeJSUtils.writeFileSync(`${outputPath}/${name}.${fileSuffix}`, content);

@@ -57,7 +57,7 @@ export default {
     }
     return result;
   },
-  showItemInFolder(filepath: string) {
+  showItemInFolder(filepath: string = "") {
     try {
       window.nodeJSBridge.showItemInFolder(filepath);
     } catch (err) {
